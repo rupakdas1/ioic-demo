@@ -1,0 +1,29 @@
+<section class="main-content-section access">      
+  <div class="access-outer-wrapper">
+      <div class="access-form-content">
+       
+          <div class="hide-on-keyboard-open"> {{ "ACCESS.WELCOME" | translate }}</div>
+        <h2 class="hide-on-keyboard-open">{{ "ACCESS.PARA0" | translate }}</h2>
+          <p class="hide-on-keyboard-open"> {{ "ACCESS.PARA1" | translate }}</p>
+          <p class="hide-on-keyboard-open"><span></span><span style="color:red;"> {{ "ACCESS.PARA2_1" | translate}}</span></p>
+
+          <div class="access-code-form">
+          <form  name="accessForm" ng-submit="app.access()">
+              <h2>{{ "ACCESS.ENTER_ACCESS_CODE" | translate }}</h2>
+
+                <label class="item item-input">
+                  <input type="number" pattern="\d*" placeholder="access code" ng-model="app.accessKey" required>
+                </label>
+                <!-- <button class="button button-full button-submit">Submit</button> -->
+                <button class="button button-full" ng-disabled="accessForm.$invalid" ng-class="{'button-submit': !accessForm.$invalid}">Submit</button>
+          </form>
+          </div>
+      </div>
+  </div>
+</section>
+ <div class="overlay" ng-class="{'hide': !app.validate}">
+  <div class="validation-box">
+      <p>{{ "ACCESS.INVALID_PASSCODE_MSG" | translate }}</p>
+      <button class="button button-agree" ng-click="app.validate = false;">OK</button>
+  </div>
+</div>
